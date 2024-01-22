@@ -42,15 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
-    <Compile Include="Especialidad.cs" />
-    <Compile Include="Especialidad_x_Medico.cs" />
-    <Compile Include="Horario.cs" />
-    <Compile Include="Horarios_x_Medico.cs" />
-    <Compile Include="Medico.cs" />
-    <Compile Include="Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recepcionista.cs" />
-    <Compile Include="Turno.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
