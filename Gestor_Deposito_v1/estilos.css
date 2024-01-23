@@ -1,8 +1,11 @@
 ﻿body {
     padding: 0px;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/024/675/760/original/green-background-hd-wallpaperss-free-download-free-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/*N A V*/
+
 .navbar {
     padding-top: 0 2px;
     font-weight: 600
@@ -22,5 +25,5 @@
 }
 
 .bg-nav {
-    background-color: #e1cf6a;
+    background-color: #607c3c;
 }
