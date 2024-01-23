@@ -8,8 +8,8 @@ namespace dominio
 {
     public enum TipoUsuario
     {
-        Admin = 1,
-        Recepcionista = 2,
+        SysAdmin = 1,
+        Administrativo = 2,
         Medico = 3,
         Paciente = 4,
         Default = 5

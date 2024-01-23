@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    class Admin
+    class SysAdmin
     {
     }
 }
