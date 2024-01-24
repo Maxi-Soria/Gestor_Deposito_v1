@@ -10,9 +10,9 @@ namespace dominio
     {
         SysAdmin = 1,
         Administrativo = 2,
-        Medico = 3,
-        Paciente = 4,
-        Default = 5
+        Cliente = 3,
+        Auditor = 4,
+        Soporte = 5
     }
     public class Usuario
     {
@@ -32,20 +32,20 @@ namespace dominio
             Pass = pass;
             if(tipoUsuario == 1)
             {
-                TipoUsuario = TipoUsuario.Admin; 
+                TipoUsuario = TipoUsuario.SysAdmin; 
             } else if(tipoUsuario == 2)
             {
-                TipoUsuario = TipoUsuario.Recepcionista;
+                TipoUsuario = TipoUsuario.Administrativo;
             }else if(tipoUsuario == 3)
             {
-                TipoUsuario = TipoUsuario.Medico;
+                TipoUsuario = TipoUsuario.Cliente;
             }else if(tipoUsuario == 4)
             {
-                TipoUsuario = TipoUsuario.Paciente;
+                TipoUsuario = TipoUsuario.Auditor;
             }
             else
             {
-                TipoUsuario = TipoUsuario.Default;
+                TipoUsuario = TipoUsuario.Soporte;
             }
             
         }

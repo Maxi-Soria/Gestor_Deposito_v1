@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    class TipoCliente
+    class Dock
     {
-        public int ID { get; set; }
-        public string Detalle { get; set; }
+        public int Numero { get; set; }
+        public string Ubicacion { get; set; }
+        public int Capacidad { get; set; }
+        public string Equipamiento { get; set; }
         public bool Estado { get; set; }
     }
 }
