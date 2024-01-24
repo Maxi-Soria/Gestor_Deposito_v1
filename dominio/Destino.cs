@@ -13,6 +13,8 @@ namespace dominio
         public string Pais { get; set; }
         public string CodPostal { get; set; }
         public string Telefono { get; set; }
+
+        public string Direccion { get; set; }
         public string Personaresponsable { get; set; }
         public bool Estado { get; set; }
     }
