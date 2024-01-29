@@ -51,10 +51,6 @@
       <Project>{94453232-3324-4852-8bd4-6cf3e3bb542a}</Project>
       <Name>dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gestor_Deposito_v1\Gestor_Deposito_v1.csproj">
-      <Project>{164a25b4-e8cd-4a44-b6a1-bb7a19db92d0}</Project>
-      <Name>Gestor_Deposito_v1</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

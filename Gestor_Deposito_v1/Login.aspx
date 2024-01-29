@@ -6,15 +6,15 @@
     <form>
   <div class="form-group">
     <label for="InputUsuario">Usuario</label>
-    <input type="user" class="form-control" id="exampleInputUsuario" aria-describedby="usuarioHelp">
+    <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" aria-describedby="usuarioHelp"></asp:TextBox>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputContraseña">
+<asp:TextBox ID="txtContraseña" runat="server" CssClass="form-control" aria-describedby="contraseñaHelp" TextMode="Password"></asp:TextBox>
   </div>
   <div class="form-check">
   </div>
-  <button type="submit" class="btn btn-primary">Ingresar</button>
+<asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass="btn btn-primary" OnClick="btnIngresar_Click" />
   <button type="submit" class="btn btn-primary">Olvide mi contraseña</button>
 </form>
 

@@ -19,7 +19,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CentroMedico_DB; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESSLABO; database=RMG_Database; integrated security=true");
             comando = new SqlCommand();
         }
 
@@ -87,7 +87,15 @@ namespace negocio
 
             try
             {
+                setearConsulta("SELECT Usuario FROM Usuarios WHERE @Usuario = usuario");
+                setearParametro("@Usuario", usuario);
+               
+                ejecutarLectura();
 
+                if (lector.HasRows)
+                {
+                    existe = 1;
+                }
 
                 return existe;
             }
@@ -95,6 +103,10 @@ namespace negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                cerrarConexion();
             }
         }
 

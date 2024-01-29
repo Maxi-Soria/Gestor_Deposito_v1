@@ -17,17 +17,16 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT Id, Usuario, Pass,TipoUser, Email FROM Usuarios");
+                datos.setearConsulta("SELECT ID_Usuario, Usuario, Contraseña, Email FROM Usuarios");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Usuario aux = new Usuario();
 
-                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Id = (int)datos.Lector["ID_Usuario"];
                     aux.User = (String)datos.Lector["Usuario"];
-                    aux.Pass = (String)datos.Lector["Pass"];
-                    aux.TipoUsuario = (TipoUsuario)datos.Lector["TipoUser"];
+                    aux.Pass = (String)datos.Lector["Contraseña"];
                     aux.Email = datos.Lector["Email"] != DBNull.Value ? (String)datos.Lector["Email"] : "Sin Correo";
 
 
@@ -53,37 +52,12 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT Id, Usuario, Pass, TipoUser FROM Usuarios WHERE Usuario = @User AND Pass = @Pass");
-                datos.setearParametro("@User", usuario.User);
+                datos.setearConsulta("SELECT ID_Usuario, Usuario, Contraseña FROM Usuarios WHERE Usuario = @Usuario AND Pass = @Pass");
+                datos.setearParametro("@Usuario", usuario.User);
                 datos.setearParametro("@Pass", usuario.Pass);
 
                 datos.ejecutarLectura();
 
-                if (datos.Lector.Read())
-                {
-                    usuario.Id = (int)datos.Lector["Id"];
-                    if((int)(datos.Lector["TipoUser"]) == 1)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Admin;
-                    }else if ((int)(datos.Lector["TipoUser"]) == 2)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Recepcionista;
-                    }
-                    else if ((int)(datos.Lector["TipoUser"]) == 3)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Medico;
-                    }
-                    else if ((int)(datos.Lector["TipoUser"]) == 4)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Paciente;
-                    }
-                    else 
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Default;
-                    }
-
-                    return true;
-                }
                 return false;
             }
             catch (Exception ex)
@@ -105,8 +79,8 @@ namespace negocio
             {
                 datos.setearProcedimiento("insertarNuevo");
                 datos.setearParametro("@email",nuevoUsuario.Email);
-                datos.setearParametro("@pass",nuevoUsuario.Pass);
-                datos.setearParametro("@user",nuevoUsuario.User);
+                datos.setearParametro("@Contraseña", nuevoUsuario.Pass);
+                datos.setearParametro("@Usuario", nuevoUsuario.User);
                 return datos.ejecutarScalar();
 
             }
@@ -145,8 +119,8 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("DELETE FROM Usuarios WHERE Id = @Id");
-                datos.setearParametro("@Id", id);
+                datos.setearConsulta("DELETE FROM Usuarios WHERE ID_Usuario = @ID_Usuario");
+                datos.setearParametro("@ID_Usuario", id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -165,13 +139,13 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("UPDATE Usuarios SET Usuario = @Usuario, Pass = @Pass, Email = @Email WHERE Id = @Id");
+                datos.setearConsulta("UPDATE Usuarios SET Usuario = @Usuario, Contraseña = @Contraseña, Email = @Email WHERE ID_Usuario = @ID_Usuario");
 
                 datos.setearParametro("@Usuario", usuario.User);
-                datos.setearParametro("@Pass", usuario.Pass);
+                datos.setearParametro("@Contraseña", usuario.Pass);
 
                 datos.setearParametro("@Email", usuario.Email);
-                datos.setearParametro("@Id", usuario.Id);
+                datos.setearParametro("@ID_Usuario", usuario.Id);
 
                 datos.ejecutarAccion();
             }
@@ -191,14 +165,14 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT Id FROM Usuarios WHERE Usuario = @Usuario");
+                datos.setearConsulta("SELECT ID_Usuario FROM Usuarios WHERE Usuario = @Usuario");
                 datos.setearParametro("@Usuario", nombreUsuario);
 
                 datos.ejecutarLectura();
 
                 if (datos.Lector.Read())
                 {
-                    return Convert.ToInt32(datos.Lector["Id"]);
+                    return Convert.ToInt32(datos.Lector["ID_Usuario"]);
                 }
                 else
                 {
@@ -222,8 +196,8 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT Email FROM Usuarios WHERE Id = @Id");
-                datos.setearParametro("@Id", idUsuario);
+                datos.setearConsulta("SELECT Email FROM Usuarios WHERE ID_Usuario = @ID_Usuario");
+                datos.setearParametro("@ID_Usuario", idUsuario);
                 datos.ejecutarLectura();
 
                 if (datos.Lector.Read())
