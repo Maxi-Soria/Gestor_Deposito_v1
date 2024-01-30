@@ -67,15 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrativo.aspx" />
     <Content Include="Ayuda.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="estilos.css" />
     <Content Include="Global.asax" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="SysAdmin.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrativo.aspx.cs">
+      <DependentUpon>Administrativo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrativo.aspx.designer.cs">
+      <DependentUpon>Administrativo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ayuda.aspx.cs">
       <DependentUpon>Ayuda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,6 +124,13 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysAdmin.aspx.cs">
+      <DependentUpon>SysAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin.aspx.designer.cs">
+      <DependentUpon>SysAdmin.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />

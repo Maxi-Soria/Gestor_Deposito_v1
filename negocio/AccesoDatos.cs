@@ -84,12 +84,13 @@ namespace negocio
         public int verificarUsuarioExistente(string usuario)
         {
             int existe = 0;
+          
 
             try
             {
                 setearConsulta("SELECT Usuario FROM Usuarios WHERE @Usuario = usuario");
                 setearParametro("@Usuario", usuario);
-               
+                               
                 ejecutarLectura();
 
                 if (lector.HasRows)

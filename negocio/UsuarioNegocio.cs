@@ -52,13 +52,35 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT ID_Usuario, Usuario, Contraseña FROM Usuarios WHERE Usuario = @Usuario AND Pass = @Pass");
+                datos.setearConsulta("SELECT Codigo_Usuario, Usuario, Contraseña FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña");
                 datos.setearParametro("@Usuario", usuario.User);
-                datos.setearParametro("@Pass", usuario.Pass);
-
+                datos.setearParametro("@Contraseña", usuario.Pass);
+               
                 datos.ejecutarLectura();
 
-                return false;
+                if (datos.Lector.Read())
+                {
+                    usuario.Id = (int)datos.Lector["ID_Usuario"];
+                    if ((int)(datos.Lector["Codigo_Usuario"]) == 1)
+                    {
+                        usuario.TipoUsuario = TipoUsuario.SysAdmin;
+                    }
+                    else if ((int)(datos.Lector["Codigo_Usuario"]) == 2)
+                    {
+                        usuario.TipoUsuario = TipoUsuario.Administrativo;
+                    }
+                    else if ((int)(datos.Lector["Codigo_Usuario"]) == 3)
+                    {
+                        usuario.TipoUsuario = TipoUsuario.Operario;
+                    }
+                    else if ((int)(datos.Lector["Codigo_Usuario"]) == 4)
+                    {
+                        usuario.TipoUsuario = TipoUsuario.Cliente;
+                    }
+                    return true;     
+                }
+
+                    return false;
             }
             catch (Exception ex)
             {

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Gestor_Deposito_v1
 {
-    public partial class Master : System.Web.UI.MasterPage
+    public partial class Administrativo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

@@ -16,24 +16,43 @@ namespace Gestor_Deposito_v1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             AccesoDatos database = new AccesoDatos();
-            Usuario nuevoUsuario = new Usuario();
+            UsuarioNegocio nuevoUsuarioNegocio = new UsuarioNegocio();
 
-            nuevoUsuario.User = txtUsuario.Text;
-            nuevoUsuario.Pass = txtContraseña.Text;
+            int existe = 0;
+            int nroUsuario = 5;
+
+          
 
             try
             {
-                if(database.verificarUsuarioExistente(nuevoUsuario.User) != 1)
+                Usuario nuevoUsuario = new Usuario(txtUsuario.Text,txtContraseña.Text,nroUsuario);
+                nuevoUsuarioNegocio.Loguear(nuevoUsuario);
+                nroUsuario = (int)nuevoUsuario.TipoUsuario;
+                existe = database.verificarUsuarioExistente(nuevoUsuario.User);
+                if (existe == 1)
                 {
-                    Response.Write("No existe el usuario");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Swal.fire('Bienvenido', 'Ingreso exitoso', 'success');", true);
+                   
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "SweetAlert", "Swal.fire('Error', 'Usuario y/o contraseña incorrectos', 'error');", true);
                 }
 
+                
+
+                switch (nroUsuario)
+                {
+                    case 1: Response.Redirect("SysAdmin.aspx");
+                    break;
+                }
+                
             }
             catch (Exception ex)
             {

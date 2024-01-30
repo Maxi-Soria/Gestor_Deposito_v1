@@ -10,16 +10,16 @@ namespace dominio
     {
         SysAdmin = 1,
         Administrativo = 2,
-        Cliente = 3,
-        Auditor = 4,
-        Soporte = 5
+        Operario = 3,
+        Cliente = 4,
+        
     }
     public class Usuario
     {
         public int Id { get; set; }
         public String User { get; set; }
         public string Pass { get; set; }
-        public TipoUsuario TipoUsuario { get; set; }
+        public TipoUsuario TipoUsuario { get; set; }       
         public string Email { get; set; }
 
         public Usuario()
@@ -38,16 +38,13 @@ namespace dominio
                 TipoUsuario = TipoUsuario.Administrativo;
             }else if(tipoUsuario == 3)
             {
-                TipoUsuario = TipoUsuario.Cliente;
+                TipoUsuario = TipoUsuario.Operario;
             }else if(tipoUsuario == 4)
             {
-                TipoUsuario = TipoUsuario.Auditor;
-            }
-            else
-            {
-                TipoUsuario = TipoUsuario.Soporte;
+                TipoUsuario = TipoUsuario.Cliente;
             }
             
+
         }
     }
 
