@@ -19,7 +19,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESSLABO; database=RMG_Database; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=RMG_Database; integrated security=true");
             comando = new SqlCommand();
         }
 

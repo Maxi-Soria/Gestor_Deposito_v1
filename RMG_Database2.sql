@@ -126,3 +126,22 @@ Patente_Camion VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Camiones(Patente),/*
 ID_Destino INT NOT NULL FOREIGN KEY REFERENCES Destinos(ID_Destino),
 Estado VARCHAR(20) NOT NULL
 )
+
+/*---------DATOS PARA LA TABLA-------------*/
+INSERT INTO Tipo_Clientes (ID_Tipo_Cliente, Detalle_Cliente)
+VALUES
+(1,'Tipo A'),
+(2,'Tipo B'),
+(3,'Tipo C')
+
+INSERT INTO Clientes (Nombre, Apellido, NombreFantasia, CUIT, Datos_Facturacion, Direccion, ID_TipoCliente, Aclaracion, Estado)
+VALUES 
+('Juan', 'Perez', 'JP Company', '123456789', 'Facturacion Juan Perez', 'Calle 123', 1, 'Detalle Cliente 1', 1),
+('Maria', 'Gomez', 'MG Enterprises', '987654321', 'Facturacion Maria Gomez', 'Avenida 456', 2, 'Detalle Cliente 2', 1),
+('Carlos', 'Lopez', 'CL Corp', '456789012', 'Facturacion Carlos Lopez', 'Calle Principal', 3, 'Detalle Cliente 3', 1)
+
+
+/*-------- CONSULTAR TABLAS-------*/ 
+SELECT * from Tipo_Clientes
+
+SELECT * FROM Clientes

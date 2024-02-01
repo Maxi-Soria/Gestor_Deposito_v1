@@ -6,37 +6,38 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using dominio;
+using negocio;
 
 namespace Gestor_Deposito_v1.VistasCrud
 {
     public partial class clientes_crud : System.Web.UI.Page
     {
+        ClienteNegocio clienteNeg = new ClienteNegocio();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                CargarDatosDePrueba();
+                CargarListaClientes();
             }
         }
 
-        private void CargarDatosDePrueba()
+        private void CargarListaClientes()
         {
-            // Crear una lista de clientes con dos registros de prueba
-            List<Cliente> clientes = new List<Cliente>
+            try
             {
-            new Cliente { ID = 1, Nombre = "John", Apellido = "Doe", NombreFantasia = "FantasyName1", Cuit = 123456789, DatosFacturacion = "Datos Facturación 1", Direccion = "Dirección 1", Id_TipoCliente = 1, Telefono = 123456789, Email = "john.doe@example.com", Aclaracion = "Aclaración 1", Estado = true },
-            };
-
-            // Antes de la asignación del DataSource
-            Debug.WriteLine($"Número de elementos antes de asignar: {clientes.Count}");
-
-            // Asignar la lista al GridView
-            gvClientes.DataSource = clientes;
-            gvClientes.DataBind();
-
-            // Después de la asignación del DataSource
-            Debug.WriteLine($"Número de elementos después de asignar: {gvClientes.Rows.Count}");
+                List<Cliente> lista = clienteNeg.listar();
+ 
+                gvClientes.DataSource = lista;
+                
+                gvClientes.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al cargar la lista de clientes: " + ex.Message);
+            }
         }
+
 
 
 

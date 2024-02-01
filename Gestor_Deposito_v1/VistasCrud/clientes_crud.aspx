@@ -19,13 +19,11 @@
                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                 <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
-                <asp:BoundField DataField="Cuit" HeaderText="Cuit" SortExpression="Cuit" />
-                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 <asp:BoundField DataField="NombreFantasia" HeaderText="Nombre Fantasía" SortExpression="NombreFantasia" />
+                <asp:BoundField DataField="Cuit" HeaderText="Cuit" SortExpression="Cuit" />
                 <asp:BoundField DataField="DatosFacturacion" HeaderText="Datos Facturación" SortExpression="DatosFacturacion" />
                 <asp:BoundField DataField="Direccion" HeaderText="Dirección" SortExpression="Direccion" />
                 <asp:BoundField DataField="Id_TipoCliente" HeaderText="ID Tipo Cliente" SortExpression="Id_TipoCliente" />
-                <asp:BoundField DataField="Telefono" HeaderText="Teléfono" SortExpression="Telefono" />
                 <asp:BoundField DataField="Aclaracion" HeaderText="Aclaración" SortExpression="Aclaracion" />
                 <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
 
