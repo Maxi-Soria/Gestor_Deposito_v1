@@ -75,6 +75,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="SysAdmin.aspx" />
+    <Content Include="VistasCrud\clientes_crud.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="SysAdmin.aspx.designer.cs">
       <DependentUpon>SysAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VistasCrud\clientes_crud.aspx.cs">
+      <DependentUpon>clientes_crud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VistasCrud\clientes_crud.aspx.designer.cs">
+      <DependentUpon>clientes_crud.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
