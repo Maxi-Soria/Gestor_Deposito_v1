@@ -9,11 +9,11 @@
 
 
         <div class="mb-3">
-            <asp:Button runat="server" ID="Button1" CssClass="btn btn-success" Text="Nuevo Cliente" OnClick="Button1_Click" />
+            <asp:Button runat="server" ID="Button1" CssClass="btn btn-primary" Text="Nuevo Cliente" OnClick="Button1_Click" />
         </div>
 
 
-        <asp:GridView runat="server" ID="gvClientes" CssClass="table table-bordered table-hover">
+        <asp:GridView runat="server" ID="gvClientes" CssClass="table table-bordered table-hover table-striped table-dark" AutoGenerateColumns="false" >
             <Columns>
 
                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
@@ -31,9 +31,14 @@
                 <asp:TemplateField HeaderText="Acciones">
                     <ItemTemplate>
                         <div class="btn-group btn-group-sm">
-                            <asp:Button runat="server" Text="Ver" CssClass="btn btn-info" CommandName="Ver" CommandArgument='<%# Eval("ID") %>' />
-                            <asp:Button runat="server" Text="Modificar" CssClass="btn btn-warning" CommandName="Modificar" CommandArgument='<%# Eval("ID") %>' />
-                            <asp:Button runat="server" Text="Eliminar" CssClass="btn btn-danger" CommandName="Eliminar" CommandArgument='<%# Eval("ID") %>' />
+
+                            
+                            
+                            <asp:LinkButton ID="LinkButton1" runat="server"><i class="bi bi-eye btn btn-success"></i></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton2" runat="server"><i class="bi bi-pen btn btn-warning ms-1 me-1"></i></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton3" runat="server"><i class="bi bi-trash3 btn btn-danger "></i></asp:LinkButton>
+
+
                         </div>
                     </ItemTemplate>
                 </asp:TemplateField>
