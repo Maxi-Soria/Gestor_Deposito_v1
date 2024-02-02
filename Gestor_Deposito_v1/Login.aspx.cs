@@ -21,24 +21,27 @@ namespace Gestor_Deposito_v1
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
+            Usuario nuevoUsuario;
             AccesoDatos database = new AccesoDatos();
             UsuarioNegocio nuevoUsuarioNegocio = new UsuarioNegocio();
 
             int existe = 0;
-            int nroUsuario = 5;
+            int nroUser = 5;
 
           
 
             try
             {
-                Usuario nuevoUsuario = new Usuario(txtUsuario.Text,txtContraseña.Text,nroUsuario);
+                nuevoUsuario = new Usuario(txtUsuario.Text,txtContraseña.Text);
+                
                 nuevoUsuarioNegocio.Loguear(nuevoUsuario);
-                nroUsuario = (int)nuevoUsuario.TipoUsuario;
+                nroUser = nuevoUsuarioNegocio.obtenerCodigoUsuario(nuevoUsuario);
+
                 existe = database.verificarUsuarioExistente(nuevoUsuario.User);
                 if (existe == 1)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Swal.fire('Bienvenido', 'Ingreso exitoso', 'success');", true);
-                   
+                    
                 }
                 else
                 {
@@ -47,7 +50,7 @@ namespace Gestor_Deposito_v1
 
                 
 
-                switch (nroUsuario)
+                switch (nroUser)
                 {
                     case 1: Response.Redirect("SysAdmin.aspx");
                     break;

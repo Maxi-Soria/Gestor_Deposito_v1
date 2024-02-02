@@ -52,31 +52,22 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT Codigo_Usuario, Usuario, Contraseña FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña");
+                //datos.setearConsulta("SELECT ID_Usuario, Usuario, Contraseña, Codigo_Usuario FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña");
+                datos.setearConsulta("SELECT Usuario, Contraseña, Codigo_Usuario FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña");
+
                 datos.setearParametro("@Usuario", usuario.User);
                 datos.setearParametro("@Contraseña", usuario.Pass);
-               
+                
+                
+     
+                                
                 datos.ejecutarLectura();
-
+                
                 if (datos.Lector.Read())
                 {
-                    usuario.Id = (int)datos.Lector["ID_Usuario"];
-                    if ((int)(datos.Lector["Codigo_Usuario"]) == 1)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.SysAdmin;
-                    }
-                    else if ((int)(datos.Lector["Codigo_Usuario"]) == 2)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Administrativo;
-                    }
-                    else if ((int)(datos.Lector["Codigo_Usuario"]) == 3)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Operario;
-                    }
-                    else if ((int)(datos.Lector["Codigo_Usuario"]) == 4)
-                    {
-                        usuario.TipoUsuario = TipoUsuario.Cliente;
-                    }
+                    //usuario.Id = (int)datos.Lector["ID_Usuario"];
+                    int tipoUsuario = (int)datos.Lector["Codigo_Usuario"];
+
                     return true;     
                 }
 
@@ -92,6 +83,28 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public int obtenerCodigoUsuario(Usuario usuario)
+        {
+            int codigoUsuario = 0;
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setearConsulta("SELECT Codigo_Usuario FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña");
+            datos.setearParametro("@Usuario", usuario.User);
+            datos.setearParametro("@Contraseña", usuario.Pass);
+
+            datos.ejecutarLectura();
+
+            if (datos.Lector.Read())
+            {
+                codigoUsuario = (int)datos.Lector["Codigo_Usuario"];
+            }
+
+            datos.cerrarConexion();
+
+            return codigoUsuario;
+        }
+
 
         public int insertarUsuario(Usuario nuevoUsuario)
         {
