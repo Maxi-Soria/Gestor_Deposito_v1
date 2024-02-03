@@ -26,9 +26,9 @@ namespace Gestor_Deposito_v1.VistasCrud
         {
             try
             {
-                List<Cliente> lista = clienteNeg.listar();
+                //List<Cliente> lista = clienteNeg.listar();
  
-                gvClientes.DataSource = lista;
+                //gvClientes.DataSource = lista;
                 
                 gvClientes.DataBind();
             }

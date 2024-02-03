@@ -38,7 +38,7 @@ namespace Gestor_Deposito_v1
                 nroUser = nuevoUsuarioNegocio.obtenerCodigoUsuario(nuevoUsuario);
 
                 existe = database.verificarUsuarioExistente(nuevoUsuario.User);
-                if (existe == 1)
+                if (existe == 1 && nroUser != 3)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Swal.fire('Bienvenido', 'Ingreso exitoso', 'success');", true);
                     
@@ -53,6 +53,11 @@ namespace Gestor_Deposito_v1
                 switch (nroUser)
                 {
                     case 1: Response.Redirect("SysAdmin.aspx");
+                    break;
+                    case 2: Response.Redirect("Administrativo.aspx");
+                    break;
+                    case 3:
+                        ScriptManager.RegisterStartupScript(this, GetType(), "SweetAlert", "Swal.fire('Error', 'El usuario es de tipo Cliente', 'error');", true);
                     break;
                 }
                 

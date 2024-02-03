@@ -8,6 +8,8 @@ Usuario VARCHAR(50) UNIQUE NOT NULL,
 Contraseña VARCHAR(100) NOT NULL,
 Email VARCHAR(100) NOT NULL,
 Telefono VARCHAR(100) NOT NULL,
+Tipo_Usuario VARCHAR(20) NOT NULL,
+Codigo_Usuario INT NOT NULL
 )
 
 GO 
@@ -121,3 +123,25 @@ Patente_Camion INT NOT NULL FOREIGN KEY REFERENCES Camiones(Patente),
 ID_Destino INT NOT NULL FOREIGN KEY REFERENCES Destinos(ID_Destino),
 Estado VARCHAR(20) NOT NULL
 )
+
+SELECT * FROM Usuarios
+
+INSERT INTO Usuarios (Usuario, Contraseña, Email, Telefono, Tipo_Usuario, Codigo_Usuario)
+VALUES ('RRODRIGUEZ', 'Raul*12345', 'raul.rodriguez@rmg.com', '123456789', 'Administrativo', 2);
+
+INSERT INTO Usuarios (Usuario, Contraseña, Email, Telefono, Tipo_Usuario, Codigo_Usuario)
+VALUES ('MSORIA', 'Maxi*12345', 'maximiliano.soria@rmg.com', '987654321', 'Administrativo', 2);
+
+INSERT INTO Usuarios (Usuario, Contraseña, Email, Telefono, Tipo_Usuario, Codigo_Usuario)
+VALUES ('GLIGERO', 'Gonza*12345', 'gonzalo.ligero.com', '123654789', 'Administrativo', 2);
+
+INSERT INTO Usuarios (Usuario, Contraseña, Email, Telefono, Tipo_Usuario, Codigo_Usuario)
+VALUES ('CocaCola', 'Coca123', 'contacto@cocacola.com', '987654321', 'Cliente', 3);
+
+INSERT INTO Usuarios (Usuario, Contraseña, Email, Telefono, Tipo_Usuario, Codigo_Usuario)
+VALUES ('Adidas', 'Adodas123', 'contacto@adidas.com', '987654321', 'Cliente', 3);
+
+INSERT INTO Usuarios (Usuario, Contraseña, Email, Telefono, Tipo_Usuario, Codigo_Usuario)
+VALUES ('Ford', 'Ford123', 'contacto@ford.com', '987654321', 'Cliente', 3);
+
+SELECT * FROM Usuarios

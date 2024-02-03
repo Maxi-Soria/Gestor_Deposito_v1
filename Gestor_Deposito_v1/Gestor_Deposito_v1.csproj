@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Administrativo.aspx" />
     <Content Include="Ayuda.aspx" />
+    <Content Include="Cliente.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="estilos.css" />
     <Content Include="Global.asax" />
@@ -92,6 +93,13 @@
     </Compile>
     <Compile Include="Ayuda.aspx.designer.cs">
       <DependentUpon>Ayuda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.aspx.cs">
+      <DependentUpon>Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente.aspx.designer.cs">
+      <DependentUpon>Cliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
