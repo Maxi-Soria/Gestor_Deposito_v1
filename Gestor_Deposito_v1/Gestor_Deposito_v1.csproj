@@ -75,6 +75,7 @@
     <Content Include="Global.asax" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="LoginCliente.aspx" />
     <Content Include="SysAdmin.aspx" />
     <Content Include="VistasCrud\clientes_crud.aspx" />
     <Content Include="Web.config" />
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginCliente.aspx.cs">
+      <DependentUpon>LoginCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginCliente.aspx.designer.cs">
+      <DependentUpon>LoginCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

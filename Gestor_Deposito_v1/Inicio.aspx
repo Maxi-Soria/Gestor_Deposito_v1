@@ -33,7 +33,7 @@
     <div class="card-body">
       <h5 class="card-title">Cliente</h5>
       <p class="card-text">Servicio exclusivo para clientes</p>
-      <button type="button" class="btn btn-primary" onclick="navegar('Login.aspx')">Externo</button>
+      <button type="button" class="btn btn-primary" onclick="navegar('LoginCliente.aspx')">Externo</button>
     </div>
   </div>
 </div>

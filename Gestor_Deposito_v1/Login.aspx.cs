@@ -38,15 +38,18 @@ namespace Gestor_Deposito_v1
                 nroUser = nuevoUsuarioNegocio.obtenerCodigoUsuario(nuevoUsuario);
 
                 existe = database.verificarUsuarioExistente(nuevoUsuario.User);
-                if (existe == 1 && nroUser != 3)
+                if(nroUser != 3)
+                {
+                    if (existe == 1)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Swal.fire('Bienvenido', 'Ingreso exitoso', 'success');", true);
-                    
-                }
+                 }
                 else
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "SweetAlert", "Swal.fire('Error', 'Usuario y/o contraseña incorrectos', 'error');", true);
+                    }
                 }
+                
 
                 
 
